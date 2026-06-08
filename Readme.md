@@ -1,3 +1,7 @@
+## 🌐 Live Demo
+
+https://fake-news-detection-system-60hi.onrender.com
+
 # 📰 Fake News Detection System
 
 A Machine Learning and NLP based web application that detects whether a news article is Real or Fake using TF-IDF Vectorization and Multinomial Naive Bayes Algorithm.
