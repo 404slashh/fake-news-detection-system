@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>About</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+        <span class="news-text">
+        News
+    </span>
+
+    <span class="intel-text">
+        Intel
+    </span>
+    </div>
+
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/live-news">Live News</a>
+        <a href="/about">About</a>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <h1 style="color:#facc15; margin-bottom:25px;">
+        <span class="intel-text">About</span> News <span class="intel-text">Intel</span>
+    </h1>
+
+    <div class="about">
+
+        <p>
+
+        The News Intel is a Machine Learning
+        and Natural Language Processing based web application
+        developed to identify whether a news article is real
+        or fake.
+
+        </p>
+
+        <br>
+
+        <p>
+
+        The system uses TF-IDF Vectorization and the
+        Multinomial Naive Bayes algorithm to analyze
+        textual patterns in news content.
+
+        </p>
+
+        <br>
+
+        <p>
+
+        Live news articles are fetched using NewsAPI
+        integration and then analyzed by the trained
+        machine learning model.
+
+        </p>
+
+        <br>
+
+        <p>
+
+        Technologies Used:
+        </p>
+
+        <br>
+
+        <ul style="line-height:2; padding-left:20px;">
+
+            <li>Python</li>
+
+            <li>Flask Framework</li>
+
+            <li>Machine Learning</li>
+
+            <li>Natural Language Processing</li>
+
+            <li>Scikit-learn</li>
+
+            <li>HTML & CSS</li>
+
+            <li>NewsAPI</li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<section class="process-section">
+
+    <p class="process-tag">
+        PROCESS
+    </p>
+
+    <h1 class="process-heading">
+
+        How
+
+        <span>
+            News Intel
+        </span>
+
+        Works
+
+    </h1>
+
+
+
+    <div class="process-container">
+
+        <!-- CARD 1 -->
+
+        <div class="process-card">
+
+            <div class="card-number">
+                01
+            </div>
+
+            <div class="card-icon">
+                📰
+            </div>
+
+            <h3>
+                Input News
+            </h3>
+
+            <p>
+                Accepts user-entered news articles
+                or live news fetched using NewsAPI.
+            </p>
+
+        </div>
+
+        <!-- CARD 2 -->
+
+        <div class="process-card">
+
+            <div class="card-number">
+                02
+            </div>
+
+            <div class="card-icon">
+                🧹
+            </div>
+
+            <h3>
+                Text Preprocessing
+            </h3>
+
+            <p>
+                Cleans text using NLP techniques
+                like stopword removal and regex filtering.
+            </p>
+
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="process-card">
+
+            <div class="card-number">
+                03
+            </div>
+
+            <div class="card-icon">
+                📊
+            </div>
+
+            <h3>
+                TF-IDF Vectorization
+            </h3>
+
+            <p>
+                Converts news text into numerical
+                vectors using TF-IDF analysis.
+            </p>
+
+        </div>
+
+        <!-- CARD 4 -->
+
+        <div class="process-card">
+
+            <div class="card-number">
+                04
+            </div>
+
+            <div class="card-icon">
+                🤖
+            </div>
+
+            <h3>
+                ML Prediction
+            </h3>
+
+            <p>
+                Multinomial Naive Bayes model predicts
+                whether the news is fake or real.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ABOUT SECTION KA LAST CONTENT -->
+
+</section>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-about">
+
+            <h2 class="footer-logo">
+                <span class="yellow-text">News</span>
+                <span class="white-text">Intel</span>
+            </h2>
+
+            <p>
+                AI-powered fake news detection system using NLP,
+                TF-IDF Vectorization, Flask, and Machine Learning.
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <h3>Quick Links</h3>
+
+            <a href="/">🏠 Home</a>
+
+            <a href="/live-news">ℹ️ Live News</a>
+
+        </div>
+
+        <div class="footer-links">
+
+            <h3>Technologies</h3>
+
+            <a>Python</a>
+
+            <a>Flask</a>
+
+            <a>Scikit-learn</a>
+
+            <a>NLTK</a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 News Intel — Fake News Detection System
+        </p>
+
+    </div>
+
+</footer>
+
+</body>
+</body>
+</html>

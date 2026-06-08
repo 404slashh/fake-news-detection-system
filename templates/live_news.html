@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Live News</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+        <span class="news-text">
+        News
+    </span>
+
+    <span class="intel-text">
+        Intel
+    </span>
+    </div>
+
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+
+</div>
+
+<section class="live-hero">
+
+    <h1>
+        🌍 Live
+        <span>News</span>
+    </h1>
+
+    <p>
+        Real-time news articles fetched using NewsAPI
+    </p>
+
+</section>
+
+<div class="container">
+
+    <h1 style="color:#facc15; margin-bottom:20px;">
+    Latest Live News
+    </h1>
+
+    <div class="live-news-card">
+
+    <div class="news-badge">
+
+        🔥 LIVE ARTICLE
+
+    </div>
+
+    <h3>
+
+        Latest Headline
+
+    </h3>
+
+    <p>
+
+        {{ article }}
+
+    </p>
+
+</div>
+
+
+    <div class="result {% if prediction == 'Real News' %}real{% else %}fake{% endif %}">
+
+        <h2>
+            {{ prediction }}
+        </h2>
+
+    </div>
+
+</div>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-about">
+
+            <h2 class="footer-logo">
+
+                <span class="yellow-text">News</span>
+                <span class="white-text">Intel</span>
+
+            </h2>
+
+            <p>
+                AI-powered fake news detection system using
+                NLP, Machine Learning, and TF-IDF Vectorization.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 News Intel — Live News Detection System
+        </p>
+
+    </div>
+
+</footer>
+</body>
+</html>

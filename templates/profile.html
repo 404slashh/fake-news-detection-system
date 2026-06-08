@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Profile</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+
+        <span class="news-text">News</span>
+        <span class="intel-text">Intel</span>
+
+    </div>
+
+    <div class="menu">
+
+        <a href="/">Home</a>
+        <a href="/live-news">Live News</a>
+        <a href="/about">About</a>
+        <a href="/logout">Logout</a>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+    <h1 style="color:#facc15; margin-bottom:20px;">
+
+        👤 User Profile
+
+    </h1>
+
+    <div class="result">
+
+        <h2>
+
+            Username: {{ user[0] }}
+
+        </h2>
+
+        <p>
+
+            Email: {{ user[1] }}
+
+        </p>
+
+    </div>
+
+    <h2 style="margin-top:40px; color:#facc15;">
+
+        📰 Past Searches
+
+    </h2>
+
+    {% for item in history %}
+
+    <div class="result" style="margin-top:20px;">
+
+        <p>
+
+            {{ item[0] }}
+
+        </p>
+
+        <h3>
+
+            Prediction:
+            {{ item[1] }}
+
+        </h3>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+
+</html>

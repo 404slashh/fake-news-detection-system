@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Signup</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="auth-container">
+
+<h1>Create Account</h1>
+
+{% if error %}
+
+<p class="error-msg">
+
+{{ error }}
+
+</p>
+
+{% endif %}
+
+{% if success %}
+
+<p class="success-msg">
+
+{{ success }}
+
+</p>
+
+{% endif %}
+
+<form method="POST">
+
+<input type="text"
+name="username"
+placeholder="Enter Username"
+required>
+
+<input type="email"
+name="email"
+placeholder="Enter Email"
+required>
+
+<input type="password"
+name="password"
+placeholder="Enter Password"
+required>
+
+<button type="submit">
+
+Signup
+
+</button>
+
+</form>
+
+<p>
+
+Already have account?
+
+<a href="/login">
+
+Login
+
+</a>
+
+</p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Newsintel.com</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+
+        <span class="news-text">
+            News
+        </span>
+
+        <span class="intel-text">
+            Intel
+        </span>
+
+    </div>
+
+    <div class="menu">
+
+        <a href="/">Home</a>
+
+        <a href="/live-news" target="_blank">
+            Live News
+        </a>
+
+        <a href="/about" target="_blank">
+            About
+        </a>
+
+        {% if "user_id" in session %}
+
+            <a href="/profile">
+                Profile
+            </a>
+
+            <a href="/logout">
+                Logout
+            </a>
+
+        {% else %}
+
+            <a href="/login">
+                Login
+            </a>
+
+            <a href="/signup">
+                Signup
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+<section class="hero-section">
+
+    <h1 class="hero-title">
+
+        <span class="white-text">Stop</span>
+
+        <span class="yellow-text">Fake News</span>
+
+        <span class="white-text">Before It Spreads</span>
+
+    </h1>
+
+    <p class="hero-description">
+
+        News Intel uses advanced NLP, TF-IDF Vectorization, and a Machine Learning model trained on 44,000+ articles
+        to analyze news articles and classify them as real or fake with 94% accuracy.
+
+    </p>
+
+</section>
+<br><br><br><br><br>
+
+
+<div id="result-section" class="container">
+    
+<h2>📰 Fake News Detector</h2>
+
+<a href="/latest-news">
+    <button style="margin-bottom:15px;">
+        🌍 Check Latest Live News
+    </button>
+</a>
+
+<p style="color:#94a3b8; margin-bottom:20px;">
+AI-powered system to classify news as real or fake using NLP and Machine Learning.
+</p>
+
+{% if latest_article %}
+<div class="result" style="margin-bottom:20px;">
+    <strong>Latest News Article:</strong><br><br>
+    {{ latest_article }}
+</div>
+{% endif %}
+
+<form action="/predict" method="post">
+
+    <textarea name="news" placeholder="Paste or type news article here..." required></textarea>
+
+    <br>
+
+    <button type="submit">🔍 Analyze News</button>
+
+</form>
+
+{% if prediction %}
+<div id="result-section" class="result {% if prediction == 'Real News' %}real{% else %}fake{% endif %}">
+    
+    {% if prediction == "Real News" %}
+        ✅ {{ prediction }}
+    {% else %}
+        ❌ {{ prediction }}
+    {% endif %}
+
+</div>
+{% endif %}
+
+
+</div>
+
+<section class="features-section">
+
+    <h2 class="section-title">
+        🚀 Key Features
+    </h2>
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+            <h3>🧠 NLP Processing</h3>
+
+            <p>
+                Uses Natural Language Processing techniques
+                to clean and analyze news content.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>📊 TF-IDF Analysis</h3>
+
+            <p>
+                Converts textual data into numerical vectors
+                using TF-IDF vectorization.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🤖 Machine Learning</h3>
+
+            <p>
+                Uses Multinomial Naive Bayes algorithm
+                for fake news classification.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🌍 Live News API</h3>
+
+            <p>
+                Fetches latest real-time news articles
+                using NewsAPI integration.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>⚡ Fast Prediction</h3>
+
+            <p>
+                Detects fake or real news instantly
+                with high accuracy.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🎨 Modern UI</h3>
+
+            <p>
+                Responsive and attractive user interface
+                built using HTML and CSS.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="model-section">
+
+    <h3 class="model-heading">
+        The ML Model
+    </h3>
+
+    <div class="model-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="model-left">
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    📁
+                </div>
+
+                <div>
+
+                    <h3>
+                        Dataset — Kaggle
+                    </h3>
+
+                    <p>
+                        44,000+ labeled articles used for training and testing 
+                        the fake news detection model.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    📊
+                </div>
+
+                <div>
+
+                    <h3>
+                        TF-IDF Vectorization
+                    </h3>
+
+                    <p>
+                        Transforms news text into numerical
+                        feature vectors using TF-IDF Vectorization.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    🤖
+                </div>
+
+                <div>
+
+                    <h3>
+                        MultinomialNB Classifier
+                    </h3>
+
+                    <p>
+                        Machine learning classifier trained to predict
+                        whether a news article is real or fake.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    🧹
+                </div>
+
+                <div>
+
+                    <h3>
+                        NLP Text Processing
+                    </h3>
+
+                    <p>
+                        Performs text cleaning, stopword removal, regex filtering,
+                        and preprocessing before prediction..
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="accuracy-box">
+
+            <div class="accuracy-circle">
+
+                <span>
+                    94%
+                </span>
+
+            </div>
+
+            <h2>
+                Overall Accuracy
+            </h2>
+
+            <p>
+                Test set evaluation on trained dataset
+            </p>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <h3>
+                        0.94
+                    </h3>
+
+                    <p>
+                        Precision
+                    </p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <h3>
+                        0.94
+                    </h3>
+
+                    <p>
+                        Recall
+                    </p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <h3>
+                        0.94
+                    </h3>
+
+                    <p>
+                        F1-Score
+                    </p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <h3>
+                        0.94
+                    </h3>
+
+                    <p>
+                        Accuracy
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+    window.onload = function(){
+
+        const resultBox =
+            document.getElementById("result-section");
+
+        if(resultBox){
+
+            resultBox.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    };
+
+</script>
+<!-- TEAM SECTION -->
+
+<section class="team-section">
+
+    <h2 class="team-heading">Project Team</h2>
+
+    <div class="team-container">
+
+        <!-- MEMBER 1 -->
+
+        <div class="team-card">
+
+            <div class="team-icon">👨‍💻</div>
+
+            <h3>Sahil Kumar</h3>
+
+            <p>ML & Backend Developer</p>
+
+        </div>
+
+        <!-- MEMBER 2 -->
+
+        <div class="team-card">
+
+            <div class="team-icon">🧑‍🎨</div>
+
+            <h3>Waseem javed</h3>
+
+            <p>Frontend & UI Design</p>
+
+        </div>
+
+        <!-- MEMBER 3 -->
+
+        <div class="team-card">
+
+            <div class="team-icon">🧑‍🔬</div>
+
+            <h3>Ankit Kumar</h3>
+
+            <p>Data & NLP Pipeline</p>
+
+        </div>
+
+        <!-- MEMBER 4 -->
+
+        <div class="team-card">
+
+            <div class="team-icon">🧑‍💼</div>
+
+            <h3>Prashant Kumar</h3>
+
+            <p>Testing & Documentation</p>
+
+        </div>
+
+        <!-- GUIDE -->
+
+        <div class="team-card">
+
+            <div class="team-icon">👨‍🏫</div>
+
+            <h3>Prof. Pragya Chaudhary</h3>
+
+            <p>Project Guide / Mentor</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- PROJECT INFO -->
+
+        <div class="footer-about">
+
+            <h2 class="footer-logo">
+                <span class="yellow-text">News</span>
+                <span class="white-text">Intel</span>
+            </h2>
+
+            <p>
+                News Intel is an AI-powered fake news detection platform
+                built using Machine Learning, NLP, TF-IDF Vectorization,
+                and Flask. The system analyzes news articles and predicts
+                whether the content is Real or Fake with high accuracy.
+            </p>
+
+            <div class="footer-badges">
+
+                <span>🤖 Machine Learning</span>
+
+                <span>🧠 NLP</span>
+
+                <span>📊 TF-IDF</span>
+
+                <span>⚡ Flask</span>
+
+            </div>
+
+        </div>
+
+        <!-- QUICK LINKS -->
+
+        <div class="footer-links">
+
+            <h3>Quick Links</h3>
+
+            <a href="/">🏠 Home</a>
+
+            <a href="/live-news" target="_blank">🌍 Live News</a>
+
+            <a href="/about" target="_blank">ℹ️ About Project</a>
+
+        </div>
+
+        <!-- PROJECT STATS -->
+
+        <div class="footer-links">
+
+            <h3>Project Stats</h3>
+
+            <a>📚 44,000+ Articles</a>
+
+            <a>🎯 94% Accuracy</a>
+
+            <a>📰 Real & Fake Detection</a>
+
+            <a>🤖 MultinomialNB Model</a>
+
+            <a>📂 ISOT Kaggle Dataset</a>
+
+        </div>
+
+        <!-- TECHNOLOGIES -->
+
+        <div class="footer-links">
+
+            <h3>Technologies</h3>
+
+            <a>Python</a>
+
+            <a>Flask Framework</a>
+
+            <a>Scikit-learn</a>
+
+            <a>NLTK</a>
+
+            <a>NewsAPI Integration</a>
+
+        </div>
+
+    </div>
+
+    <!-- BOTTOM -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 News Intel — Fake News Detection System using AI & Machine Learning.
+        </p>
+
+    </div>
+
+</footer>
+</body>
+</html>

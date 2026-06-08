@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+database.db
+tempCodeRunnerFile.py
+project-test.txt
+.env
+venv/
